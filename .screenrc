@@ -1,6 +1,8 @@
 # GNU Screen configuration file
 # Balaji S. Srinivasan <balajis@stanford.edu>
 #
+#	EDIT by amacleay
+#
 # Notes
 # -----
 # 1. Modified to work with Emacs: C-t is the action command, not C-a. 
@@ -19,7 +21,7 @@
 markkeys "h=^B:l=^F:$=^E"             # emacs style keybindings during copy mode movement in screen
 autodetach             on             # default: on
 crlf                  off             # default: off
-#deflogin              off            # default: on
+deflogin              off            # default: on
 hardcopy_append       on              # default: off
 startup_message       off             # default: on
 vbell                 off             # default: ???
@@ -70,6 +72,10 @@ bind 'f' focus top
 bind ^B focus bottom
 bind 'b' focus bottom
 
+# amacleay edit - the 'dash' makes this an interactive login
+# otherwise, .bash_profile isn't sourced
+defshell -bash
+
 ## -------------------------------------------------------------------------------------------------
 ## -- 2) Hardstatus line (aka navigation bar at bottom) 
 ##       and sorendition (aka color scheme for navigation bar)
@@ -85,8 +91,8 @@ sorendition "+b kG"
 hardstatus alwayslastline "%H %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"  
 
 # 2.3) Autoload two screen tabs for emacs/bash.
-screen -t emacs 0
-screen -t bash 1
+screen
+screen $SHELL -c 'screen -X caption always "$STY"'
 
 # 2.4) Description of the keywords used in hardstatus
 # caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f* %t%{-}%+Lw%-0<"
