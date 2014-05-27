@@ -1,0 +1,28 @@
+#!/usr/bin/env perl
+
+$_REPL->load_plugin($_) foreach qw(
+    Colors
+    Commands
+    Completion
+    CompletionDriver::Globals
+    CompletionDriver::Keywords
+    CompletionDriver::LexEnv
+    CompletionDriver::Methods
+    DDC
+    FancyPrompt
+    LexEnv
+    MultiLine::PPI
+    Packages
+    ReadLineHistory
+);
+
+$_REPL->fancy_prompt(sub {
+    my $repl = shift;
+    return sprintf(
+      ':%03d%s> ',
+      $repl->lines_read,
+      $repl->can('line_depth') ? ':' . $repl->line_depth : ''
+    );
+});
+
+
