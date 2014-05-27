@@ -11,7 +11,7 @@ ln -sb dotfiles/.bash_profile .
 ln -sb dotfiles/.bashrc .
 ln -sb dotfiles/.bashrc_custom .
 mkdir .re.pl
-ln -sb dotfiles/.re.pl/repl.rc
+ln -sf dotfiles/.re.pl/repl.rc
 mv .emacs.d .emacs.d~
 ln -s dotfiles/.emacs.d .
 ```
