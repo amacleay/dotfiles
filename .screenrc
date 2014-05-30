@@ -71,6 +71,8 @@ bind ^F focus top
 bind 'f' focus top
 bind ^B focus bottom
 bind 'b' focus bottom
+bind '_' resize max
+bind '=' resize =
 
 # amacleay edit - the 'dash' makes this an interactive login
 # otherwise, .bash_profile isn't sourced
