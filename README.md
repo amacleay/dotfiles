@@ -10,8 +10,9 @@ ln -sb dotfiles/.screenrc .
 ln -sb dotfiles/.bash_profile .
 ln -sb dotfiles/.bashrc .
 ln -sb dotfiles/.bashrc_custom .
+ln -sb dotfiles/.vimrc .
 mkdir .re.pl
-ln -sf dotfiles/.re.pl/repl.rc
+cp -b dotfiles/.re.pl/repl.rc .re.pl/
 mv .emacs.d .emacs.d~
 ln -s dotfiles/.emacs.d .
 ```

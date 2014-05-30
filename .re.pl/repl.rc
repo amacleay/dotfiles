@@ -1,4 +1,12 @@
-#!/usr/bin/env perl
+# unbuffer
+$| = 1;
+# like 'perl -l'
+$\ = $/;
+
+use strict;
+use warnings;
+
+use Carp;
 
 $_REPL->load_plugin($_) foreach qw(
     Colors
@@ -17,12 +25,17 @@ $_REPL->load_plugin($_) foreach qw(
 );
 
 $_REPL->fancy_prompt(sub {
-    my $repl = shift;
-    return sprintf(
-      ':%03d%s> ',
-      $repl->lines_read,
-      $repl->can('line_depth') ? ':' . $repl->line_depth : ''
-    );
+	return '>>> ';
+});
+$_REPL->fancy_continuation_prompt(sub {
+	return '... ';
 });
 
+$SIG{__WARN__} = sub {
+	warn @_, Carp::longmess;
+	return;
+};
+$SIG{__DIE__} = sub {
+	die @_, Carp::longmess;
+};
 
