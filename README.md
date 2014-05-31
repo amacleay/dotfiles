@@ -11,6 +11,7 @@ ln -sb dotfiles/.bash_profile .
 ln -sb dotfiles/.bashrc .
 ln -sb dotfiles/.bashrc_custom .
 ln -sb dotfiles/.vimrc .
+ln -sb dotfiles/.perldb .
 mkdir .re.pl
 cp -b dotfiles/.re.pl/repl.rc .re.pl/
 mv .emacs.d .emacs.d~
