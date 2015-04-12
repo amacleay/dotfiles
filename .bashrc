@@ -190,6 +190,7 @@ alias md='mkdir'
 alias cl='clear'
 alias du='du -ch --max-depth=1'
 alias treeacl='tree -A -C -L 2'
+alias ls='ls --color=auto'
 
 # 2.3) Text and editor commands
 export EDITOR='vim'
