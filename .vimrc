@@ -15,6 +15,9 @@ set incsearch " search immediately highlights matches
 " Stop Q from sending into execute mode
 map Q :q
 
+" Detect markdown files by default
+au BufRead,BufNewFile *.md set filetype=markdown
+
 " Perl stuff
 let perl_extended_vars = 1
 let perl_sync_dist = 300 "more context for syntax highlighting
