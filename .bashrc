@@ -200,5 +200,20 @@ export VISUAL='vim'
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;31' # green for matches
 
+# tmuxr
+# tmux-reattach - looks to see if session is running and attaches if it is, else creates new with that name
+function tmuxr {
+  if [ "$1" ]; then
+    if [[ -z $( tmux list-sessions -F '#{session_name}' | grep $1 ) ]]; then
+      tmux new -s $1;
+    else
+      tmux attach-session -d -t $1;
+    fi;
+  else
+    echo 'Need first argument to be session name';
+    return 2;
+  fi
+}
+
 ## Define any user-specific variables you want here.
 source ~/.bashrc_custom
