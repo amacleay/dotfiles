@@ -13,6 +13,7 @@ set incsearch " search immediately highlights matches
 
 " Line numbers in the left-hand gutter: turn on and make grey
 set number
+set relativenumber
 autocmd VimEnter * highlight LineNr ctermfg=DarkGrey
 
 " Stop Q from sending into execute mode
