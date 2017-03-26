@@ -197,7 +197,7 @@ export EDITOR='vim'
 export VISUAL='vim' 
 
 # 2.4) grep options
-export GREP_OPTIONS='--color=auto'
+alias grep='grep --color=auto'
 export GREP_COLOR='1;31' # green for matches
 
 # tmuxr
@@ -217,3 +217,21 @@ function tmuxr {
 
 ## Define any user-specific variables you want here.
 source ~/.bashrc_custom
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# Configure PATH
+#  - These are line by line so that you can kill one without affecting the others.
+#  - Lowest priority first, highest priority last.
+export PATH=$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=/usr/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
+# Node hack: add the _local_ path to node module executables
+export PATH="$PATH:node_modules/.bin"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
