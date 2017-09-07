@@ -20,7 +20,6 @@ autocmd VimEnter * highlight LineNr ctermfg=DarkGrey
 map Q :q
 
 " Detect markdown files by default
-au BufRead,BufNewFile *.md set filetype=markdown
 
 " Perl stuff
 let perl_extended_vars = 1
@@ -38,3 +37,18 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
 nmap <Leader>a <Plug>(EasyAlign)
 
+let g:vim_markdown_folding_disabled = 1
+let g:vimwiki_list = [{
+  \ 'auto_toc': 1,
+  \ 'ext': '.md',
+  \ 'syntax': 'markdown',
+  \ 'nested_syntaxes': {
+  \   'python': 'python',
+  \   'perl': 'perl',
+  \   'javascript': 'javascript',
+  \   'js': 'javascript',
+  \   'c++': 'cpp'
+  \  }
+\ }]
+
+au BufRead,BufNewFile *.md set filetype=markdown
